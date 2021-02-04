@@ -13,7 +13,13 @@ function getReport(city,key) {
     .then(res => res.json())
     .then(data => {
         const celcious = document.getElementById('celcius')
+        const weather = document.getElementById('weather')
+        // celcious.innerText = data.main.temp
         celcious.innerText = data.main.temp
+        weather.innerText = data.weather[0].description
+        const img = document.getElementById('img')
+        img.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`)
+        
         console.log(data)
     })
 }
